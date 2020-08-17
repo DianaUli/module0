@@ -1,0 +1,146 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
+import numpy as np
+count = 0
+
+
+def game_core(number):
+    lower_limit=1
+    upper_limit=100                            
+    count=1
+    #запускаем цикл отгадывания методом половинного деления:
+    while lower_limit!=upper_limit:
+        count+=1
+        if number<=int(lower_limit+upper_limit)/2:
+            upper_limit=int((lower_limit+upper_limit)/2)
+        else:
+            lower_limit=int((lower_limit+upper_limit)/2)+1
+    return(count)
+
+
+def score_game(game_core):
+    '''Запускаем игру 1000 раз, чтобы узнать, как быстро игра угадывает число'''
+    count_ls = []
+    np.random.seed(1)  # фиксируем RANDOM SEED, чтобы ваш эксперимент был воспроизводим!
+    random_array = np.random.randint(1,101, size=(1000))
+    for number in random_array:
+        count_ls.append(game_core(number))
+    score = int(np.mean(count_ls))
+    print(f"Ваш алгоритм угадывает число в среднем за {score} попыток")
+    return(score)
+
+
+score_game(game_core)    
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
